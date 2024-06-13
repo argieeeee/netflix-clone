@@ -1,0 +1,3 @@
+interface InputProps {
+	id: string;
+}
