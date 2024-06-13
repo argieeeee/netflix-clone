@@ -29,7 +29,7 @@ export default async function handler(
 					email: currentUser.email || "",
 				},
 				data: {
-					favoritedIds: {
+					favoriteIds: {
 						push: movieId,
 					},
 				},
@@ -53,14 +53,14 @@ export default async function handler(
 				throw new Error("Invalid ID");
 			}
 
-			const updatedFavoriteIds = without(currentUser.favoritedIds, movieId);
+			const updatedFavoriteIds = without(currentUser.favoriteIds, movieId);
 
 			const updatedUser = await prismadb.user.update({
 				where: {
 					email: currentUser.email || "",
 				},
 				data: {
-					favoritedIds: updatedFavoriteIds,
+					favoriteIds: updatedFavoriteIds,
 				},
 			});
 

@@ -17,7 +17,7 @@ export default async function handler(
 		const favoriteMovies = await prismadb.movie.findMany({
 			where: {
 				id: {
-					in: currentUser?.favoritedIds,
+					in: currentUser?.favoriteIds,
 				},
 			},
 		});
